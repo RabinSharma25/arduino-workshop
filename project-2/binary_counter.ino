@@ -8,7 +8,8 @@ const int ledPin0 = 8;
 const int ledPin1 = 9;
 const int ledPin2 = 10;
 const int ledPin3 = 11;
-void setup() {
+void setup()
+{
   Serial.begin(9600);
   pinMode(ledPin0, OUTPUT);
   pinMode(ledPin1, OUTPUT);
@@ -24,8 +25,6 @@ void loop() {
     toString = convertToBinary(val);
     ledCounter(toString);
   }
-
-
 }
 
 int takeInput() {
@@ -37,29 +36,19 @@ int takeInput() {
 
   // Read the integer from the Serial input
   int inputValue = Serial.parseInt();
-
-  // Print the received integer
-
-
-
+  // Print the received integ
   if (inputValue < 0 || inputValue > 15) {
     Serial.println("Invalid input");
-    return 0;
+    return 0 ;
   }
 
-  //      delay(1000);
+  //  delay(1000);
   return inputValue;
 
 }
 
 String convertToBinary(int value) {
   String binaryString = "";
-
-  // Ensure the value is non-negative
-  if (value < 0) {
-    Serial.println("Cannot convert negative numbers to binary in this example.");
-    return;
-  }
 
   // Convert the integer to a 4-digit binary string
   for (int i = 3; i >= 0; i--) {
@@ -77,29 +66,29 @@ String convertToBinary(int value) {
 
 
 void ledCounter(String bin) {
-digitalWrite(ledPin0, LOW);
-digitalWrite(ledPin0, LOW);
-digitalWrite(ledPin0, LOW);
-digitalWrite(ledPin0, LOW);
+  digitalWrite(ledPin0, LOW);
+  digitalWrite(ledPin1, LOW);
+  digitalWrite(ledPin2, LOW);
+  digitalWrite(ledPin3, LOW);
 
-if(bin[0] == '1'){
-  digitalWrite(ledPin0, HIGH);
-  Serial.print("high ");
-}
+  if (bin[0] == '1') {
+    digitalWrite(ledPin0, HIGH);
+//    Serial.print("high ");
+  }
 
-if(bin[1] == '1'){
-  digitalWrite(ledPin1, HIGH);
-  Serial.print("high ");
-}
+  if (bin[1] == '1') {
+    digitalWrite(ledPin1, HIGH);
+//    Serial.print("high ");
+  }
 
-if(bin[2] == '1'){
-  digitalWrite(ledPin2, HIGH);
-  Serial.print("high ");
-}
+  if (bin[2] == '1') {
+    digitalWrite(ledPin2, HIGH);
+//    Serial.print("high ");
+  }
 
-if(bin[3] == '1'){
-  digitalWrite(ledPin3, HIGH);
-  Serial.println("high");
-}
+  if (bin[3] == '1') {
+    digitalWrite(ledPin3, HIGH);
+//    Serial.println("high");
+  }
 
 }
